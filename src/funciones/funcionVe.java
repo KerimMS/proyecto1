@@ -18,19 +18,19 @@ public class funcionVe {
 	vendedor v = new vendedor();
 	Object [][] listar;
 	
-	public void crear (String nombre, int id_caja, int ventas, String genero, String contrasena) {
-    	String sql = "insert into vendedores(codigo_v,nombre,id_caja,ventas,genero,constrasena)values(?,?,?,?,?,?)";
+	public void crear ( String nombre, int id_caja, int ventas, String genero, String contrasena) {
+    	String sql = "insert into vendedores(nombre,id_caja,ventas,genero,contrasena)values(?,?,?,?,?)";
     	
     	try {
     		con = acceso.Conectar();
             ps = con.prepareStatement(sql);
             
-            //ps.setInt(1, codigo_v);
-            ps.setString(2, nombre);
-            ps.setInt(3, id_caja);
-            ps.setInt(4, ventas);
-            ps.setString(5, genero);
-            ps.setString(6, contrasena);
+            ps.setString(1, nombre);
+            ps.setInt(2, id_caja);
+            ps.setInt(3, ventas);
+            ps.setString(4, genero);
+            ps.setString(5, contrasena);
+           //ps.setInt(6, codigo_v);
             ps.executeUpdate();
     	}
     	catch (Exception e) {
@@ -39,17 +39,18 @@ public class funcionVe {
     }
     
     public void modificar(vendedor v) {
-    	String sql = "update vendedores set codigo_v=?, nombre=?, id_caja=?, ventas=?, genero=?, contrasena=? where codigo_v=?";
+    	String sql = "update vendedores set nombre=?, id_caja=?, ventas=?, genero=?, contrasena=? where codigo_v=?";
         
     	try {
     		con = acceso.Conectar();
             ps = con.prepareStatement(sql);            
-            ps.setInt(1, v.getCodigo());
-            ps.setString(2, v.getNombre());
-            ps.setInt(3, v.getCaja());
-            ps.setInt(4, v.getVentas());
-            ps.setString(5, v.getGenero());
-            ps.setString(6, v.getContrasena());
+            
+            ps.setString(1, v.getNombre());
+            ps.setInt(2, v.getCaja());
+            ps.setInt(3, v.getVentas());
+            ps.setString(4, v.getGenero());
+            ps.setString(5, v.getContrasena());
+            ps.setInt(6, v.getCodigo());
             ps.executeUpdate();
     	}
     	catch (Exception e) {

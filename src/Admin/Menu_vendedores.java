@@ -317,6 +317,7 @@ public class Menu_vendedores implements Serializable {
 								objeto.get("contrasena").getAsString());
 				}
 			}
+			
 
 			private void eliminar() {
 				int posicion = tabla.getSelectedRow();
@@ -444,7 +445,7 @@ public class Menu_vendedores implements Serializable {
 									objeto.setCaja(Integer.parseInt(t3.getText()));
 									objeto.setVentas(Integer.parseInt(t4.getText()));
 									objeto.setGenero(t5.getText());
-									objeto.setGenero(t6.getText());
+									objeto.setContrasena(t6.getText());
 									
 									funcionVe fV = new funcionVe();
 									fV.modificar(objeto);
