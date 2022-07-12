@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 import javax.swing.*;
 import org.json.simple.parser.ParseException;
@@ -34,7 +35,7 @@ public class Menu_productos implements Serializable {
 	JButton actualizar = new JButton();
 	JButton eliminar = new JButton();
 	JButton pdf = new JButton();
-	
+	//DecimalFormat dF = new DecimalFormat("#.00");
 	//matriz
 	Object [][] productos;
 	
@@ -302,7 +303,7 @@ public class Menu_productos implements Serializable {
 						JsonObject objeto = matriz.get(i).getAsJsonObject();
 						funcionPro fP = new funcionPro();
 						fP.crear(objeto.get("nombre").getAsString(), objeto.get("descripcion").getAsString(), 
-								objeto.get("cantidad").getAsInt(), objeto.get("precio").getAsDouble());
+								objeto.get("cantidad").getAsInt(), objeto.get("precio").getAsInt());
 				}
 			}
 
@@ -419,8 +420,8 @@ public class Menu_productos implements Serializable {
 									objeto.setCodigo(Integer.parseInt(t1.getText()));
 									objeto.setNombre(t2.getText());
 									objeto.setDescripcion(t3.getText());
-									objeto.setPrecio(Double.parseDouble(t4.getText()));
-									objeto.setCantidad(Integer.parseInt(t5.getText()));
+									objeto.setCantidad(Integer.parseInt(t4.getText()));
+									objeto.setPrecio(Integer.parseInt(t5.getText()));
 									
 									funcionPro fP = new funcionPro();
 									fP.modificar(objeto);

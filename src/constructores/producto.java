@@ -6,7 +6,7 @@ public class producto {
 	private String nombre;
 	private String descripcion;
 	private int cantidad;
-	private double precio;
+	private int precio;
 	
 	public int getCodigo() {
 		return ID_P;
@@ -32,10 +32,10 @@ public class producto {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	public double getPrecio() {
+	public int getPrecio() {
 		return precio;
 	}
-	public void setPrecio(double precio) {
+	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
 	

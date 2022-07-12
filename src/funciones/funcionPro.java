@@ -14,9 +14,9 @@ public class funcionPro {
 	AccDB acceso = new AccDB();
 	producto p = new producto();
 	Object [][] listar;
-	DecimalFormat dF = new DecimalFormat("#.00");
 	
-	public void crear (String nombre, String descripcion, int cantidad, double precio) {
+	
+	public void crear (String nombre, String descripcion, int cantidad, int precio) {
     	String sql = "insert into productos(nombre,descripcion,cantidad,precio)values(?,?,?,?)";
     	
     	try {
@@ -26,7 +26,7 @@ public class funcionPro {
             ps.setString(1, nombre);
             ps.setString(2, descripcion);
             ps.setInt(3, cantidad);
-            ps.setDouble(4, precio);
+            ps.setInt(4, precio);
             ps.executeUpdate();
     	}
     	catch (Exception e) {
@@ -43,7 +43,7 @@ public class funcionPro {
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getDescripcion());
             ps.setInt(3, p.getCantidad());
-            ps.setDouble(4, p.getPrecio());
+            ps.setInt(4, p.getPrecio());
             ps.setInt(5, p.getCodigo());
             ps.executeUpdate();
     	}
@@ -115,7 +115,7 @@ public class funcionPro {
             			p.setCodigo(rs.getInt(1));
                 		p.setNombre(rs.getString(2));            		
                 		p.setCantidad(rs.getInt(4));
-                		p.setPrecio(rs.getDouble(5));
+                		p.setPrecio(rs.getInt(5));
                 		return p;
             		}else {
             			JOptionPane.showMessageDialog(null, "Cantidad solicitada mayor al inventario, se cuenta con:"+ rs.getInt(4));
