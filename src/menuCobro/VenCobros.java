@@ -19,10 +19,11 @@ import javax.swing.*;
 
 import com.itextpdf.text.DocumentException;
 
-import conexioBD.clientes2;
+
 import constructores.producto;
 import funciones.funcionCli;
 import funciones.funcionPro;
+
 
 //vista vendedores
 public class VenCobros {
@@ -278,33 +279,9 @@ public class VenCobros {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				clientes2 c = new clientes2(Integer.parseInt(t1.getText()),t2.getText(),Integer.parseInt(t3.getText()),t4.getText(),t5.getText());
+				funcionCli fC = new funcionCli(); 
 
-				for (int i = 0; i < clientes.length; i++) {
-					if (clientes[i][0] == null) {
-
-						clientes[i][0] = c.id_C;
-						clientes[i][1] = c.nombre;
-						clientes[i][2] = c.nit;
-						clientes[i][3] = c.correo;
-						clientes[i][4] = c.genero;
-
-						// guardar
-						try {
-							ObjectOutputStream carga = new ObjectOutputStream(
-									new FileOutputStream("tabla_clientes.dat"));
-							carga.writeObject(clientes);
-							carga.close();
-						} catch (IOException j) {
-
-						}
-
-						crear.setVisible(false);
-
-						break;
-
-					}
-				}
+				fC.crear(t2.getText(), Integer.parseInt(t3.getText()), t4.getText(), t5.getText());
 
 			}
 		};
