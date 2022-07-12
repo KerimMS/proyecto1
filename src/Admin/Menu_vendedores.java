@@ -314,7 +314,7 @@ public class Menu_vendedores implements Serializable {
 						funcionVe fV = new funcionVe();
 						fV.crear(objeto.get("nombre").getAsString(), objeto.get("caja").getAsInt(), 
 								objeto.get("ventas").getAsInt(), objeto.get("genero").getAsString(), 
-								objeto.get("contrasena").getAsString());
+								objeto.get("password").getAsString());
 				}
 			}
 			
