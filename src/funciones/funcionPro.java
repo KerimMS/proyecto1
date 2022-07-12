@@ -2,6 +2,8 @@ package funciones;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 import conexioBD.AccDB;
 import constructores.producto;
@@ -12,6 +14,7 @@ public class funcionPro {
 	AccDB acceso = new AccDB();
 	producto p = new producto();
 	Object [][] listar;
+	DecimalFormat dF = new DecimalFormat("#.00");
 	
 	public void crear (String nombre, String descripcion, int cantidad, double precio) {
     	String sql = "insert into productos(nombre,descripcion,cantidad,precio)values(?,?,?,?)";
