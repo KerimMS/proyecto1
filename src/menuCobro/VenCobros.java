@@ -516,7 +516,8 @@ public class VenCobros {
 		
 		
 		JTextField t3_total = new JTextField();
-		
+		t3_total.setBounds(665, 235, 100, 30);
+		ventas.add(t3_total);
 		
 		
 		JButton agregar = new JButton("Agregar");
